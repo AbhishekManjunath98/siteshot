@@ -196,7 +196,7 @@ function HomePage(props: any) {
         heading="Only screenshot capturer tool you need"
         desc="Ditch generic keywords and discover powerful, untapped gems with our advanced scraper. Say goodbye to endless brainstorming and hello to targeted content that dominates search engines. No more tedious manual research. Automate your keyword discovery, freeing up your time for crafting content that truly shines."
       />
-      <div className="flex flex-col items-center border shadow-lg p-4">
+      <div className="flex flex-col items-center border border-gray-400 shadow-lg p-4">
         <TextField
           fullWidth
           value={videoUrl}
@@ -206,7 +206,7 @@ function HomePage(props: any) {
           variant="outlined"
         />
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-4">
           <Checkbox onChange={(e) => setIsFullScreen(e.target.checked)} />
           <h3 className="text-sm text-center font-bold">
             {isFullScreen
