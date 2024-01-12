@@ -11,10 +11,14 @@ import FaqComponent from "./components/FaqComponent";
 import FaqList from "./components/FaqList";
 
 function App() {
-  const [color, setColor] = useState<string>("");
-  const handleColorChange = (color: string) => {
-    setColor(color);
-  };
+    const [color, setColor] = useState<string>("");
+    const [point, setPoint] = useState<number>(0);
+    const handleColorChange = (color: string) => {
+      setColor(color);
+    };
+    const handlePointChange = (p: number) => {
+      setPoint(p);
+    };
 
   return (
     <div className="overflow-hidden">
@@ -23,13 +27,15 @@ function App() {
       <ColorContext.Provider
         value={{
           color: color,
+          point: point,
+          setPoint: handlePointChange,
           setColor: handleColorChange,
         }}
       >
         <SimpleIntro
           tag="FREE TOOL"
           heading="Capture Website Screenshots"
-          subtitle="Take Screenshot of Any Website"
+          subtitle="Take Screenshot(s) of Any Website"
           btntext="Take Screenshot"
         />
         <Home />

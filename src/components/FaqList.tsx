@@ -9,28 +9,28 @@ function FaqList(props: any) {
         style={{ borderBottomWidth: "1px", borderBottomColor: "lightgray" }}
       />
       <FaqComponent
-        faq="What kind of websites can I analyze with your tool?"
-        answer="Our tool can extract keywords from virtually any publicly accessible website, regardless of its content or structure."
+        faq="What types of websites can I capture?"
+        answer="Our tool handles a wide range of websites, including static pages, dynamic sites, e-commerce platforms, and social media pages. However, due to technical limitations, some elements like Flash content or frames might not render perfectly."
       />
       <FaqComponent
-        faq="How many keywords will your tool extract from a website?"
-        answer="The number of extracted keywords depends on the website's length and content richness. You'll typically see a list of the most relevant and frequently used keywords."
+        faq="Can I choose the resolution of the screenshot?"
+        answer="Currently, we offer high-quality PNG exports at a fixed resolution. However, we're working on adding adjustable resolution options in future updates."
       />
       <FaqComponent
-        faq="How accurate is your keyword extraction process?"
-        answer="We utilize advanced algorithms to accurately identify and prioritize keywords based on their relevance and prominence within the website's content."
+        faq="What do you mean by viewport capture?"
+        answer="This option captures only the portion of the website visible on your screen, like what you see without scrolling. It's ideal for mobile-specific or focused screenshots."
       />
       <FaqComponent
-        faq="Can I filter the extracted keywords in any way?"
-        answer="Yes, you can filter keywords based on factors like word count, frequency, or specific phrases to refine your results and focus on the most relevant terms"
+        faq="Is there a limit on how many screenshots I can take?"
+        answer="We don't impose any strict limits on free usage. However, excessive usage might require contacting our support team for verification."
       />
       <FaqComponent
-        faq="Can I export the extracted keywords for further analysis?"
-        answer="Absolutely! You can easily export the keyword list in various formats, such as CSV or Excel, for integration into your preferred SEO tools or content strategies"
+        faq=" Do you store my screenshots or website data?"
+        answer="No, we only process the URLs you provide and delete the associated data shortly after generating the screenshot. Your privacy is our priority."
       />
       <FaqComponent
-        faq="Does your tool have any limitations in terms of website size or complexity?"
-        answer="We've designed our tool to handle even large and complex websites efficiently. However, if you encounter any issues, please don't hesitate to contact our support team."
+        faq="Does your tool require any downloads or plugins?"
+        answer="Our tool is entirely web-based. Simply visit our website, enter the URL, choose your options, and click Snap to get your screenshot. No downloads or installations needed!"
       />
     </div>
   );

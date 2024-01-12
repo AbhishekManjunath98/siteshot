@@ -27,7 +27,7 @@ import { v4 as uuidv4 } from "uuid";
 import FeatureIntro from "../components/FeatureIntro";
 import { ColorContext } from "../extras/ColorContext";
 
-const API_BASE_URL = `http://192.168.1.88:9999/extras/v1/api/parsing/site-screenshot?siteUrl=`;
+const API_BASE_URL = `https://appnor-backend.onrender.com/extras/v1/api/parsing/site-screenshot?siteUrl=`;
 
 function HomePage(props: any) {
   const colorContex = useContext(ColorContext);
@@ -48,10 +48,8 @@ function HomePage(props: any) {
 
   useEffect(() => {
     scrollToDiv();
-    setIsDownloadSuccess(true);
-    // setDisplayedItems(audioResponse.links.slice(0, itemsPerPage));
     return () => {};
-  }, [colorContex.color]);
+  }, [colorContex.point]);
 
   const handleClose = () => {
     setOpen(false);
@@ -117,7 +115,7 @@ function HomePage(props: any) {
       return;
     }
     if (videoUrl === "" || !videoUrl.startsWith("https://www")) {
-      alert("A Valid Website URL[https://www] is Required!!");
+      alert("A Valid Website URL [https://www] is Required!!");
       return;
     }
 
@@ -166,7 +164,10 @@ function HomePage(props: any) {
   }
 
   function scrollToDiv() {
-    scrollRef.current.scrollIntoView();
+    if (colorContex.point !== 0) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+      colorContex.setPoint(0);
+    }
   }
 
   const backdrop = (
@@ -193,8 +194,8 @@ function HomePage(props: any) {
     >
       {backdrop}
       <FeatureIntro
-        heading="Only screenshot capturer tool you need"
-        desc="Ditch generic keywords and discover powerful, untapped gems with our advanced scraper. Say goodbye to endless brainstorming and hello to targeted content that dominates search engines. No more tedious manual research. Automate your keyword discovery, freeing up your time for crafting content that truly shines."
+        heading="Enjoy crystal-clear screenshots without compromise"
+        desc="Introducing the screenshot tool that lets you capture any website with ease, from full-page scrolls to precise viewport snapshots – all as crisp, high-quality PNGs! No sign-ups, no subscriptions, no hassle. Just enter the URL and click Snap! Full-page or viewport capture – Choose the perfect scope for your needs."
       />
       <div className="flex flex-col items-center border border-gray-400 shadow-lg p-4">
         <TextField
@@ -235,7 +236,7 @@ function HomePage(props: any) {
         </h3>
         <div className="flex items-center justify-center">
           <Checkbox onChange={(e) => handleCheckboxChange(e.target.checked)} />
-          <h3 className="text-xs text-center m-2">
+          <h3 className="text-xs text-center">
             By capturing screenshot of 3rd party websites you agree to our terms
             & conditions for fair usages policy
           </h3>
@@ -269,7 +270,9 @@ function HomePage(props: any) {
         </div>
       )}
 
-      <img alt="screenshot-file" className="mt-5 mb-8" src={imageSrc} />
+      {isDownloadSuccess && (
+        <img alt="screenshot-file" className="mt-5 mb-8" src={imageSrc} />
+      )}
 
       {isDownloadSuccess && (
         <Button
